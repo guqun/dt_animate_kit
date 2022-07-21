@@ -1,0 +1,22 @@
+PODS:
+  - dt_animate_kit (0.0.1):
+    - FlutterMacOS
+  - FlutterMacOS (1.0.0)
+
+DEPENDENCIES:
+  - dt_animate_kit (from `Flutter/ephemeral/.symlinks/plugins/dt_animate_kit/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+
+EXTERNAL SOURCES:
+  dt_animate_kit:
+    :path: Flutter/ephemeral/.symlinks/plugins/dt_animate_kit/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+
+SPEC CHECKSUMS:
+  dt_animate_kit: 9d2db97e39d3c2e833e71fac3e705744559edfd7
+  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
+
+PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+
+COCOAPODS: 1.9.3
