@@ -1,7 +1,7 @@
 name: dt_animate_kit
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: A animate kit Flutter project.
+version: 0.0.11
+homepage: https://github.com/guqun/dt_animate_kit.git
 
 environment:
   sdk: ">=2.17.0 <3.0.0"

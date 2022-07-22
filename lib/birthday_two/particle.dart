@@ -37,7 +37,7 @@ class Particle{
     // alpha = 1.toDouble() - f;
     alpha = 1;
     f = bottom * f2;
-    cx = baseCx + f;
+    cx = baseCx + f * 3;
     cy = (baseCy - neg * pow(f, 2.0)).toDouble() - f * mag;
     radius = V + (baseRadius - V) * f2;
   }

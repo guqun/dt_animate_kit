@@ -52,12 +52,9 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
   final List<Particle> _particles1 = [];
   final List<Particle> _particles2 = [];
 
-  int count = 0;
   RenderState _state = RenderState.stop;
   RenderState _state1 = RenderState.stop;
   RenderState _state2 = RenderState.stop;
-
-  int init = 0;
 
   BirthdayEffectTwoState(){
     fetchImages();
@@ -83,7 +80,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
 
   Future<void> initParams(List<Particle> ps, double startX, double startY) async {
     if (widget.viewWidth != 0 && widget.viewHeight != 0 && ps.isEmpty) {
-      count = 40;
+      int count = 40;
       for (int i = 0; i < count; i++) {
         ps.add(_generatePartice(Colors.red, Random(), startX, startY));
       }
@@ -109,7 +106,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
   @override
   void initState() {
     _controller =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 4), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
     _controller?.addListener(() {
       setState(() {});
       _state = RenderState.drawing;
@@ -128,7 +125,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
 
 
     _controller1 =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 4), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
     _controller1?.addListener(() {
       _state1 = RenderState.drawing;
     });
@@ -146,7 +143,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
 
 
     _controller2 =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 4), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
     _controller2?.addListener(() {
       _state2 = RenderState.drawing;
     });
@@ -188,7 +185,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
     particle.bottom = (300.w * (random.nextDouble() - 0.5.toDouble())) * 1.8.toDouble();
     double f = nextFloat < 0.2.toDouble() ? particle.bottom : nextFloat < 0.8.toDouble() ? particle.bottom * 0.6.toDouble() : particle.bottom * 0.3.toDouble();
     particle.bottom = f;
-    particle.mag = 4.0.toDouble() * particle.top / particle.bottom * 2;
+    particle.mag = 4.0.toDouble() * particle.top / particle.bottom * 4;
     particle.neg = (-particle.mag) / particle.bottom;
     f = startX + 10.w * Random().nextDouble();
 
