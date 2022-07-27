@@ -21,13 +21,15 @@ class BirthdayEffectTwo extends StatefulWidget {
   final int delaySec;
   final int delaySec1;
   final int delaySec2;
+  final int durationSec;
 
   const BirthdayEffectTwo(
       {Key? key, required this.viewWidth, required this.viewHeight,
         required this.startX, required this.startY,
         required this.startX1, required this.startY1,
         required this.startX2, required this.startY2,
-        required this.delaySec, required this.delaySec1, required this.delaySec2,})
+        this.delaySec = 0, this.delaySec1 = 2, this.delaySec2 = 4, this.durationSec = 2
+      })
       : super(key: key);
 
   @override
@@ -57,10 +59,10 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
   RenderState _state2 = RenderState.stop;
 
   BirthdayEffectTwoState(){
-    fetchImages();
+    initData();
   }
 
-  Future<void> fetchImages() async {
+  Future<void> initData() async {
     var image1 = await ImageUtils.getImage('packages/dt_animate_kit/assets/images/bitrhday_two_1.png');
     var image2 = await ImageUtils.getImage('packages/dt_animate_kit/assets/images/bitrhday_two_2.png');
     var image3 = await ImageUtils.getImage('packages/dt_animate_kit/assets/images/bitrhday_two_3.png');
@@ -106,7 +108,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
   @override
   void initState() {
     _controller =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: Duration(seconds: widget.durationSec), vsync: this);
     _controller?.addListener(() {
       setState(() {});
       _state = RenderState.drawing;
@@ -125,7 +127,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
 
 
     _controller1 =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: Duration(seconds: widget.durationSec), vsync: this);
     _controller1?.addListener(() {
       _state1 = RenderState.drawing;
     });
@@ -143,7 +145,7 @@ class BirthdayEffectTwoState extends State<BirthdayEffectTwo>
 
 
     _controller2 =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 2), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: Duration(seconds: widget.durationSec), vsync: this);
     _controller2?.addListener(() {
       _state2 = RenderState.drawing;
     });
@@ -280,52 +282,3 @@ class EffectBirthdayTwoPainter extends CustomPainter {
   }
 }
 
-class EffectBirthdayOneParams {
-
-  /// 图片
-  ui.Image? image;
-
-  /// x 坐标
-  double? x;
-
-  /// y 坐标
-  double? y;
-
-  /// 下落速度
-  double? speed;
-
-  /// 绘制的缩放
-  double? scale;
-
-  /// 宽度
-  double? width;
-
-  /// 高度
-  double? height;
-
-  /// 透明度
-  double? alpha;
-
-  // double? widthRatio;
-  // double? heightRatio;
-
-  EffectBirthdayOneParams(this.width, this.height, this.image);
-
-  void init(/*widthRatio, heightRatio*/) {
-    // this.widthRatio = widthRatio;
-    // this.heightRatio = max(heightRatio, 0.65);
-    reset();
-    y = Random().nextInt(height!.toInt()).toDouble() - height!;
-  }
-
-  /// 当雪花移出屏幕时，需要重置参数
-  void reset() {
-    double ratio = 1.0;
-    double random = 0.4 + 0.12 * Random().nextDouble() * 5;
-    scale = 1;
-    speed = 8 *  Random().nextDouble();
-    alpha = random;
-    x = Random().nextInt(width! * 1.2 ~/ scale!).toDouble() -
-        width! * 0.1 ~/ scale!;
-  }
-}

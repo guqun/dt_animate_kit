@@ -1,16 +1,14 @@
 # dt_animate_kit
 
-A new Flutter project.
+A animate Kit Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+The project implements two birthday firework effects, 
+the first one is the streamer falling and the second one is the streamer exploding.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## referenced
+https://github.com/xiaweizi/flutter_weather_bg
+https://github.com/tyrantgit/ExplosionField.git
 
 # dt_animate_kit

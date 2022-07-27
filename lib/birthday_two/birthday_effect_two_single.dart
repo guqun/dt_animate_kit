@@ -15,13 +15,13 @@ class BirthdayEffectTwoSingle extends StatefulWidget {
   final double startX;
   final double startY;
   final int delaySec;
-
+  final int durationSec;
   // final int num;
 
   const BirthdayEffectTwoSingle(
       {Key? key, required this.viewWidth, required this.viewHeight,
         required this.startX, required this.startY,
-        required this.delaySec})
+        required this.delaySec, this.durationSec = 2})
       : super(key: key);
 
   @override
@@ -92,7 +92,7 @@ class BirthdayEffectTwoSingleState extends State<BirthdayEffectTwoSingle>
   @override
   void initState() {
     _controller =
-        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: const Duration(seconds: 4), vsync: this);
+        AnimationController(lowerBound: 0.0, upperBound: 1.5, duration: Duration(seconds: widget.durationSec), vsync: this);
     _controller?.addListener(() {
       setState(() {});
       _state = RenderState.drawing;
